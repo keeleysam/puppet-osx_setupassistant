@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>PayloadIdentifier</key>
-  <string><%= scope['osx_setupassistant::identifer'] %></string>
+  <string><%= @identifer or 'com.apple.SetupAssistant' %></string>
   <key>PayloadRemovalDisallowed</key>
   <true/>
   <key>PayloadScope</key>
@@ -13,7 +13,7 @@
   <key>PayloadUUID</key>
   <string>D06A8CF8-4C1C-452B-A48D-97871AF5ECEF</string>
   <key>PayloadOrganization</key>
-  <string><%= scope['osx_setupassistant::organization'] %></string>
+  <string><%= @organization %></string>
   <key>PayloadVersion</key>
   <integer>1</integer>
   <key>PayloadDisplayName</key>
@@ -26,7 +26,7 @@
       <key>PayloadVersion</key>
       <integer>1</integer>
       <key>PayloadIdentifier</key>
-      <string><%= scope['osx_setupassistant::identifer'] %></string>
+      <string><%= @identifer or 'com.apple.SetupAssistant' %></string>
       <key>PayloadUUID</key>
       <string>C823FDE7-0EFB-485A-B9EB-35069450556D</string>
       <key>PayloadEnabled</key>

@@ -5,7 +5,7 @@ $disablesetupassistant = $osx_setupassistant::disablesetupassistant
 $identifier            = $osx_setupassistant::identifier
 $organization          = $osx_setupassistant::organization
 
-mac_profiles_handler::manage { 'com.apple.SetupAssistant':
+mac_profiles_handler::manage { $identifier :
 	ensure  => $disablesetupassistant,
 	file_source => template('osx_setupassistant/com.apple.SetupAssistant.mobileconfig.erb'),
 	type => 'template',

@@ -1,4 +1,4 @@
 # puppet-osx_setupassistant
-An example of using erb templates to dynamically generate mobileconfigs.
+An example of dynamically generate mobileconfigs.
 
-This module depends on https://github.com/ryanycoleman/rcoleman-mac_profiles_handler
+This module depends on https://github.com/keeleysam/puppet-mac_profiles_handler

@@ -1,14 +1,18 @@
-# Module to manage the OS X Setup Assistant
+# Class: osx_setupassistant::profile
+#
+# Module to manage the macOS Setup Assistant
 
 class osx_setupassistant (
 
-    $disablesetupassistant = present,
-    $identifier            = 'com.apple.SetupAssistant',
-    $organization          = '',
+  $identifier    = 'com.apple.SetupAssistant',
+  $organization  = '',
 
 ) {
 
-    class{'osx_setupassistant::profile': } ->
-    Class['osx_setupassistant']
+  validate_string($identifier)
+  validate_string($organization)
+
+  class{'osx_setupassistant::profile': } ->
+  Class['osx_setupassistant']
 
 }

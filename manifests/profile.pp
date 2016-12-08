@@ -4,8 +4,10 @@
 
 class osx_setupassistant::profile{
 
-$identifier            = $osx_setupassistant::identifier
-$organization          = $osx_setupassistant::organization
+$identifier       = $osx_setupassistant::identifier
+$organization     = $osx_setupassistant::organization
+$skip_siri        = $osx_setupassistant::skip_siri
+$submit_diag_info = $osx_setupassistant::submit_diag_info
 
 $profile = {
     'PayloadContent' => [
@@ -19,7 +21,8 @@ $profile = {
                   'DidSeeCloudSetup' => true,
                   'LastSeenCloudProductVersion' => $::os['macosx']['version']['full'],
                   'LastSeenBuddyBuildVersion' => $::os['macosx']['build'],
-                  'RunNonInteractive' => true
+                  'RunNonInteractive' => true,
+                  'DidSeeSiriSetup' => $skip_siri
                 }
               }
             ]
@@ -30,7 +33,44 @@ $profile = {
         'PayloadType' => 'com.apple.ManagedClient.preferences',
         'PayloadUUID' => 'C823FDE7-0EFB-485A-B9EB-35069450556D',
         'PayloadVersion' => 1
-      }
+      },
+      {
+          'PayloadContent' => {
+            'com.apple.SetupAssistant.managed' => {
+              'Forced' => [
+                {
+                  'mcx_preference_settings' => {
+                    'SkipCloudSetup' => true,
+                  }
+                }
+              ]
+            }
+          },
+          'PayloadEnabled' => true,
+          'PayloadIdentifier' => 'com.apple.SetupAssistant.managed',
+          'PayloadType' => 'com.apple.ManagedClient.preferences',
+          'PayloadUUID' => '77CC9C72-8C78-4C54-B30A-31E2EA338EC5',
+          'PayloadVersion' => 1
+        },
+        {
+          'PayloadEnabled' => true,
+          'PayloadIdentifier' => 'com.apple.SubmitDiagInfo',
+          'PayloadType' => 'com.apple.SubmitDiagInfo',
+          'PayloadUUID' => '09183D1A-E012-46C0-8DAC-402257219896',
+          'PayloadVersion' => 1,
+          'PayloadDisplayName' => 'Security & Privacy',
+          'AutoSubmit' => $submit_diag_info
+        },
+        {
+          'PayloadEnabled' => true,
+          'PayloadIdentifier' => 'com.apple.applicationaccess',
+          'PayloadType' => 'com.apple.applicationaccess',
+          'PayloadUUID' => 'F3181FA1-9CFD-40DE-8B00-9C0C7F50AD20',
+          'PayloadVersion' => 1,
+          'PayloadDisplayName' => 'Security & Privacy',
+          'AutoSubmit' => $submit_diag_info
+        }
+
     ],
     'PayloadDescription' => "Included custom settings:\ncom.apple.SetupAssistant",
     'PayloadDisplayName' => 'Settings for Setup Assistant',

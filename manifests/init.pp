@@ -9,6 +9,9 @@ class osx_setupassistant (
   $skip_icloud      = true,
   $skip_siri        = true,
   $submit_diag_info = true,
+  $skip_touch_id    = true,
+  $skip_apple_pay   = true,
+
 
 ) {
 
@@ -17,7 +20,7 @@ class osx_setupassistant (
   validate_bool($skip_icloud)
   validate_bool($skip_siri)
 
-  class {'osx_setupassistant::profile': } ->
-  Class['osx_setupassistant']
+  class {'osx_setupassistant::profile': }
+  -> Class['osx_setupassistant']
 
 }

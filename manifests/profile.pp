@@ -10,6 +10,7 @@ class osx_setupassistant::profile{
   $submit_diag_info = $osx_setupassistant::submit_diag_info
   $skip_touch_id    = $osx_setupassistant::skip_touch_id
   $skip_apple_pay   = $osx_setupassistant::skip_apple_pay
+  $skip_privacy     = $osx_setupassistant::skip_privacy
 
   $profile = {
     'PayloadContent' => [
@@ -30,7 +31,8 @@ class osx_setupassistant::profile{
                   'DidSeeCloudDiagnostics' => true,
                   'DidSeeTouchIDSetup' => $skip_touch_id,
                   'DidSeeSyncSetup' => true,
-                  'DidSeeSyncSetup2' => true
+                  'DidSeeSyncSetup2' => true,
+                  'DidSeePrivacy' => $skip_privacy
                 }
               }
             ]

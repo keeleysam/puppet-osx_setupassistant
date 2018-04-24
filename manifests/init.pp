@@ -11,7 +11,7 @@ class osx_setupassistant (
   $submit_diag_info = true,
   $skip_touch_id    = true,
   $skip_apple_pay   = true,
-
+  $skip_privacy     = true,
 
 ) {
 

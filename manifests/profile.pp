@@ -33,6 +33,7 @@ class osx_setupassistant::profile{
                   'DidSeeTouchIDSetup' => $skip_touch_id,
                   'DidSeeSyncSetup' => true,
                   'DidSeeSyncSetup2' => true,
+                  'DidSeeTrueTonePrivacy' => true,
                   'DidSeePrivacy' => $skip_privacy
                 }
               }

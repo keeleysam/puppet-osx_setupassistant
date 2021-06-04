@@ -26,12 +26,14 @@ class osx_setupassistant::profile{
                   'LastSeenBuddyBuildVersion' => $::os['macosx']['build'],
                   'RunNonInteractive' => true,
                   'DidSeeSiriSetup' => $skip_siri,
+                  'DidSeeAppearanceSetup' => true,
                   'DidSeeApplePaySetup' => $skip_apple_pay,
                   'DidSeeAvatarSetup' => true,
                   'DidSeeCloudDiagnostics' => true,
                   'DidSeeTouchIDSetup' => $skip_touch_id,
                   'DidSeeSyncSetup' => true,
                   'DidSeeSyncSetup2' => true,
+                  'DidSeeTrueTonePrivacy' => true,
                   'DidSeePrivacy' => $skip_privacy
                 }
               }

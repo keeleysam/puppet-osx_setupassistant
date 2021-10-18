@@ -34,7 +34,8 @@ class osx_setupassistant::profile{
                   'DidSeeSyncSetup' => true,
                   'DidSeeSyncSetup2' => true,
                   'DidSeeTrueTonePrivacy' => true,
-                  'DidSeePrivacy' => $skip_privacy
+                  'DidSeePrivacy' => $skip_privacy,
+                  'SkipiCloudStorageSetup' => true
                 }
               }
             ]

@@ -4,13 +4,14 @@
 
 class osx_setupassistant::profile{
 
-  $identifier       = $osx_setupassistant::identifier
-  $organization     = $osx_setupassistant::organization
-  $skip_siri        = $osx_setupassistant::skip_siri
-  $submit_diag_info = $osx_setupassistant::submit_diag_info
-  $skip_touch_id    = $osx_setupassistant::skip_touch_id
-  $skip_apple_pay   = $osx_setupassistant::skip_apple_pay
-  $skip_privacy     = $osx_setupassistant::skip_privacy
+  $identifier          = $osx_setupassistant::identifier
+  $organization        = $osx_setupassistant::organization
+  $skip_siri           = $osx_setupassistant::skip_siri
+  $submit_diag_info    = $osx_setupassistant::submit_diag_info
+  $skip_touch_id       = $osx_setupassistant::skip_touch_id
+  $skip_apple_pay      = $osx_setupassistant::skip_apple_pay
+  $skip_privacy        = $osx_setupassistant::skip_privacy
+  $skip_icloud_storage = $osx_setupassistant::skip_icloud_storage
 
   $profile = {
     'PayloadContent' => [
@@ -35,7 +36,7 @@ class osx_setupassistant::profile{
                   'DidSeeSyncSetup2' => true,
                   'DidSeeTrueTonePrivacy' => true,
                   'DidSeePrivacy' => $skip_privacy,
-                  'SkipiCloudStorageSetup' => true
+                  'SkipiCloudStorageSetup' => $skip_icloud_storage
                 }
               }
             ]
